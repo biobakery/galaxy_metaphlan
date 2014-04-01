@@ -1,0 +1,89 @@
+<tool id="metaphlan" name="MetaPhlAn" version="1.6.0">
+  <description>metagenomic profiler</description>
+  <command interpreter="python">metaphlan.py $input  --bowtie2_exe  bowtie2  --bowtie2db $GALAXY_ROOT_DIR/tools/metaphlan/bowtie2db/mpa  --no_map  -o $output  --bt2_ps $PresetsForBowtie2 </command>
+s]
+	<inputs>
+		<param format="fasta" name="input" type="data" label="Input metagenome (multi-fasta of metagenomic reads, loaded with the Get Data module, see below for an example)"></param>
+		<param name="PresetsForBowtie2" type="select" format="text">
+			<label>Sensitivity options for read-marker similarity (as described by BowTie2)</label>
+				<option value="very-sensitive-local">Very Sensitive  Local</option>
+				<option value="sensitive-local">Sensitive  Local</option>
+				<option value="very-sensitive">Very Sensitive</option>
+				<option value="sensitive">Sensitive</option>
+		</param>			
+	</inputs>
+	<outputs>
+            <data format="tabular" name="output" />
+	</outputs>
+
+                                    
+  <help>
+
+.. class:: infomark
+
+**Input example:** You can try out MetaPhlAn using the synthetic dataset (250,000 reads) available at: https://bitbucket.org/nsegata/metaphlan/wiki/LC1.fna. There is no need to download the file, you can just copy-and-paste the dataset address in the "Upload File" module inside the "Load Data" link here in the left panel.
+
+.. class:: infomark
+
+**Computational time:** Unless the server is overloaded, you should expect the tool to process ~10,000 reads per second. The synthetic metagenome linked above (250,000 reads) should take no more than 30 seconds to complete.
+
+.. class:: infomark
+
+**Tip:** If your input is in FASTQ you can convert it in FASTA using the corresponding Galaxy module included in the "Convert Format" tools.
+
+---------
+
+**What it does**
+
+MetaPhlAn (Metagenomic Phylogenetic Analysis) is a computational tool for profiling the composition of microbial communities from metagenomic shotgun sequencing data. MetaPhlAn relies on unique clade-specific marker genes identified from reference genomes, allowing orders of magnitude speedups and unambiguous taxonomic assignments.
+
+Although MetaPhlAn can use both BlastN and BowTie2 in the read-to-marker mapping step, this Galaxy module uses only BowTie2 for computational reasons. 
+
+For additional information about MetaPhlAn and the MetaPhlAn command line package, please refer to http://huttenhower.sph.harvard.edu/metaphlan or to the paper reported below. Please notice that most of the additional parameters that can be tuned with the command line version are set here to the default values.
+
+---------
+
+**Inputs**
+
+The input file must be a multi-fasta file containing metagenomic reads loaded with the "Get Data" module in the left panel. Reads can be as short as ~40 nt although lengths higher than 70 nt are recommended. 
+
+A synthetic metagenome you can use as sample input is available at https://bitbucket.org/nsegata/metaphlan/wiki/LC1.fna.
+
+**Outputs**
+
+The output is a two column tab-separated plain file reporting the predicted microbial clades present in the metagenomic samples and the corresponding relative abundances. 
+
+All taxonomic levels from domain to species will be reported and higher taxonomic levelis contain the sum of the abundances of its taxonomic leaf nodes (usually species) and, possibly, some lower level "unclassified" clades. 
+
+-----
+
+**Citation and contacts**
+
+If you find MetaPhlAn useful in your research, please cite our paper:
+
+| `Nicola Segata`_, Levi Waldron, Annalisa Ballarini, Vagheesh Narasimhan, Olivier Jousson, `Curtis Huttenhower`_.
+| "`Metagenomic microbial community profiling using unique clade-specific marker genes`_"
+| Nature Methods, doi:10.1038/nmeth.2066, 2012
+| 
+
+If you have any questions or comments, feel free to `contact  us`_. Additional information are available at http://huttenhower.sph.harvard.edu/metaphlan and in the FAQ at the same page. You can also join and use our user group at https://groups.google.com/d/forum/metaphlan-users
+
+.. _contact us: nsegata@hsph.harvard.edu
+.. _Nicola Segata: nsegata@hsph.harvard.edu
+.. _Curtis Huttenhower: chuttenh@hsph.harvard.edu
+.. _Metagenomic microbial community profiling using unique clade-specific marker genes: http://www.nature.com/nmeth/journal/vaop/ncurrent/full/nmeth.2066.html
+
+-----
+
+.. class:: infomark
+
+**Installing MetaPhlAn in your Galaxy environment**
+
+Your are wellcome to include this module in your local Galaxy installation. You can find the source file for the module and the instructions to integrate it in the "galaxy_module" folder at
+
+https://bitbucket.org/nsegata/metaphlan/src
+
+
+
+  </help>
+</tool>
