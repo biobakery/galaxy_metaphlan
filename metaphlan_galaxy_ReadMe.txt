@@ -23,4 +23,4 @@ Note #2
 *******
 bowtie2 is a strict requirement - if missing, please install it:
 sudo apt-get install bowtie2
-
+We need to resolve the issue of how to post the databases in bitbucket
