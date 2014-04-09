@@ -1,5 +1,11 @@
 #Installation instructions for metaphlan in a galaxy environment.
 
+For general information about MetaPhLan,  please refer to:
+```
+http://huttenhower.sph.harvard.edu/metaphlan
+```
+
+
 
 Clone the metaphlan galaxy repository 
 ```
