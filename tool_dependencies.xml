@@ -23,5 +23,11 @@ http://huttenhower.sph.harvard.edu/metaphlan
 https://groups.google.com/forum/#!forum/metaphlan-users
         </readme>
     </package>
+    <package name="numpy" version="1.7">
+        <repository changeset_revision="0c288abd2a1e" name="package_numpy_1_7" owner="devteam" prior_installation_required="False" toolshed="http://toolshed.g2.bx.psu.edu" />
+    </package>
+    <package name="bowtie2" version="2.1.0">
+        <repository changeset_revision="017a00c265f1" name="package_bowtie2_2_1_0" owner="devteam" prior_installation_required="False" toolshed="http://toolshed.g2.bx.psu.edu" />
+    </package>
 </tool_dependency>
 
