@@ -24,7 +24,11 @@
 	<outputs>
             <data format="tabular" name="output" />
 	</outputs>
-        <tests>
+	<requirements>
+		<requirement type="package" version="2.1.0">bowtie2</requirement>
+		<requirement type="package" version="1.7">numpy</requirement>
+	</requirements>
+    <tests>
             <test>
                  <param name="input" value="metaphlan_input"  ftype="fasta"  />
                  <param name="PresetsForBowtie2" value="sensitive" />
@@ -34,7 +38,7 @@
                            <has_text text="k__Bacteria|p__Actinobacteria" />
                        </assert_contents>
             </test>
-        </tests>
+	</tests>
 
 
                                     
