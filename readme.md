@@ -2,7 +2,7 @@
 
 For general information about metaphlan please go to:
 ```
-https://bitbucket.org/biobakery/biobakery/wiki/metaphlan
+https://github.com/biobakery/biobakery/wiki/metaphlan1
 ```
 Installation instructions for metaphlan in a galaxy environment.
 
